@@ -1,0 +1,28 @@
+/* Tipografía independiente de distribución, colores y animaciones. */
+:root {
+  font-family: "Montserrat", "Century Gothic", Arial, sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: "Montserrat", "Century Gothic", Arial, sans-serif;
+  font-weight: 800;
+}
+
+.job,
+.copy-contact {
+  font-family: "Montserrat", "Century Gothic", Arial, sans-serif;
+  font-weight: 400;
+}
+
+.brand-dragon {
+  font-family: "Michroma", "Century Gothic", sans-serif;
+  font-weight: 400;
+  letter-spacing: .04em;
+}
+
+.brand-systems {
+  font-family: "Montserrat", "Century Gothic", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: .32em;
+}

@@ -9,18 +9,24 @@
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&amp;family=Montserrat:wght@400;700;800&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="theme-picker" role="group" aria-label="Color de la tarjeta" hidden>
-    <button type="button" data-theme-choice="dark" aria-pressed="true">Fondo negro</button>
-    <button type="button" data-theme-choice="light" aria-pressed="false">Fondo blanco</button>
-  </div>
-  <main class="card">
+  <button class="theme-switch" type="button" role="switch" aria-checked="true" aria-label="Modo nocturno" hidden>
+    <span class="theme-switch-thumb" aria-hidden="true"></span>
+    <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" /></svg>
+    <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z" /></svg>
+  </button>
+  <main class="flip-card">
+    <div class="card-rotator">
+    <section class="card card-front" id="contact-face" aria-label="Tarjeta de contacto">
     <div class="brand">
       <img class="logo" src="assets/logo.png" alt="Logotipo de Dragon Systems: dragón alrededor de un microchip" />
-      <div class="brandname">DRAGON <span>SYSTEMS</span></div>
+      <div class="brandname">
+        <span class="brand-dragon">DRAGON</span>
+        <span class="brand-systems">SYSTEMS</span>
+      </div>
     </div>
     <div class="rule" aria-hidden="true"></div>
     <section class="profile">
@@ -28,22 +34,43 @@
       <div class="underline" aria-hidden="true"></div>
       <p class="job">Ingeniero en Electrónica</p>
       <div class="contact">
-        <a href="tel:+524436155863" aria-label="Llamar al 443 615 5863">
+        <button class="copy-contact" type="button" data-copy="4436155863" data-copy-label="Teléfono" aria-label="Copiar teléfono 443 615 5863">
           <span class="symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a15 15 0 0 1-7-7l2-2-2-5Z" /></svg></span>
-          <span>443 615 5863</span>
-        </a>
-        <a href="mailto:Dsystems@gmail.com">
+          <span class="contact-text">443 615 5863<small>Toca para copiar</small></span>
+        </button>
+        <button class="copy-contact" type="button" data-copy="Dsystems@gmail.com" data-copy-label="Correo" aria-label="Copiar correo Dsystems@gmail.com">
           <span class="symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg></span>
-          <span>Dsystems@gmail.com</span>
-        </a>
+          <span class="contact-text">Dsystems@gmail.com<small>Toca para copiar</small></span>
+        </button>
       </div>
-      <div class="actions">
-        <a class="primary" href="ivan-mejia.vcf" download="Ivan-Mejia-Dragon-Systems.vcf">Guardar contacto</a>
-        <a href="https://wa.me/524436155863" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        <a href="mailto:Dsystems@gmail.com">Enviar correo</a>
-      </div>
+      <p class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </section>
+    </section>
+    <section class="card card-back" id="services-face" aria-labelledby="services-title" hidden>
+      <header class="services-header">
+        <img class="logo services-logo" src="assets/logo.png" alt="Dragon Systems" />
+        <p class="services-brand">DRAGON SYSTEMS</p>
+        <h2 id="services-title" tabindex="-1">Nuestros servicios</h2>
+        <div class="underline" aria-hidden="true"></div>
+        <p class="services-intro">Soluciones en electrónica, sistemas embebidos y diseño.</p>
+      </header>
+      <ul class="services-list">
+        <li><span class="service-number" aria-hidden="true">01</span><div><h3>Diagnóstico electrónico</h3><p>Evaluación de equipos e identificación de fallas.</p></div></li>
+        <li><span class="service-number" aria-hidden="true">02</span><div><h3>Diseño de sistemas embebidos</h3><p>Desarrollo de soluciones con microcontroladores y sensores.</p></div></li>
+        <li><span class="service-number" aria-hidden="true">03</span><div><h3>Diseño 3D</h3><p>Modelado de piezas, carcasas y prototipos.</p></div></li>
+      </ul>
+      <a class="service-contact" href="https://wa.me/524436155863" target="_blank" rel="noopener noreferrer">Consultar un proyecto</a>
+    </section>
+    </div>
+    <button class="card-arrow" type="button" aria-label="Ver servicios" title="Ver servicios" aria-controls="services-face" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7" /></svg>
+    </button>
   </main>
+  <nav class="actions" aria-label="Acciones de contacto">
+    <a class="action-whatsapp" href="https://wa.me/524436155863" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp" title="WhatsApp"><img src="assets/icons/whatsapp.svg" alt="" aria-hidden="true" /></a>
+    <a href="mailto:Dsystems@gmail.com" aria-label="Enviar correo" title="Enviar correo"><img src="assets/icons/envelope.svg" alt="" aria-hidden="true" /></a>
+    <a href="ivan-mejia.vcf" download="Ivan-Mejia-Dragon-Systems.vcf" aria-label="Guardar contacto" title="Guardar contacto"><img src="assets/icons/contact.svg" alt="" aria-hidden="true" /></a>
+  </nav>
   <footer>DRAGON SYSTEMS · Tecnología e innovación</footer>
   <script src="script.js" defer></script>
 </body>
