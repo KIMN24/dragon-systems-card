@@ -1,15 +1,31 @@
-// El QR usa la dirección pública actual. Publica primero en GitHub Pages.
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('qrcode');
-  const status = document.getElementById('qr-status');
-  const url = window.location.href.split('#')[0].split('?')[0];
-  if (location.protocol === 'file:' || ['localhost','127.0.0.1'].includes(location.hostname)) {
-    status.textContent = 'Publica la página en GitHub Pages para obtener un QR que puedan usar otras personas.';
-    return;
-  }
-  if (typeof QRCode === 'undefined') {
-    status.textContent = 'No se pudo cargar el generador de QR. Comprueba tu conexión a Internet.';
-    return;
-  }
-  new QRCode(container, {text:url,width:180,height:180,colorDark:'#111111',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+﻿// Conserva la versión elegida cuando el navegador permite guardar preferencias.
+const themeButtons = document.querySelectorAll('[data-theme-choice]');
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeColor.content = theme === 'light' ? '#ffffff' : '#101010';
+  themeButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.themeChoice === theme));
+  });
+}
+
+try {
+  const savedTheme = localStorage.getItem('dragon-systems-theme');
+  if (savedTheme === 'light' || savedTheme === 'dark') applyTheme(savedTheme);
+} catch {
+  // El selector también funciona si el almacenamiento está bloqueado.
+}
+
+themeButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const theme = button.dataset.themeChoice;
+    applyTheme(theme);
+    try {
+      localStorage.setItem('dragon-systems-theme', theme);
+    } catch {
+      // La selección permanece activa durante esta visita.
+    }
+  });
 });
+document.querySelector('.theme-picker').hidden = false;

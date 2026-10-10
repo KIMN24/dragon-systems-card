@@ -7,7 +7,13 @@
 4. En **Build and deployment**, elige **Deploy from a branch**. Selecciona la rama `main` y carpeta `/(root)`, y pulsa **Save**.
 5. Espera a que GitHub muestre la URL. Normalmente será `https://TU-USUARIO.github.io/dragon-systems-card/`.
 6. Abre esa URL desde el celular y comprueba llamar, correo, WhatsApp y descarga del contacto.
-7. Abre **Mostrar código QR** desde la página publicada. El QR apunta a la dirección de la página actual. La librería QR se carga desde cdnjs, por lo que necesita conexión a Internet.
+7. Comprueba las versiones de fondo negro y blanco con el selector. El navegador recuerda la elección cuando permite almacenamiento local.
+
+## Diseño
+- El QR se utilizará fuera de la página para acceder a la tarjeta; no se muestra ni se genera dentro de ella.
+- Se conserva el archivo original del logotipo. En la versión blanca se presenta en negro mediante CSS, como en la tarjeta de referencia.
+- Montserrat aproxima la tipografía de las imágenes; la fuente original no está identificada. Se carga desde Google Fonts con fuentes locales de respaldo.
+- Los iconos de teléfono y correo son SVG integrados, sin bibliotecas externas.
 
 ## Cambios
 - Para cambiar textos, enlaces o botones: edita `index.html`.
