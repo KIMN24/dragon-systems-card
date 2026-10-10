@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090909" />
+  <meta name="description" content="Tarjeta de contacto digital de Iván Mejía — Dragon Systems." />
+  <title>Iván Mejía | Dragon Systems</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card">
+    <div class="brand">
+      <img class="logo" src="assets/logo.png" alt="Logotipo de Dragon Systems: dragón rojo alrededor de un microchip" />
+      <div class="brandname">DRAGON <span>SYSTEMS</span></div>
+    </div>
+    <div class="rule"></div>
+    <section class="profile">
+      <p class="eyebrow">TARJETA DIGITAL</p>
+      <h1>Iván Mejía</h1>
+      <div class="underline"></div>
+      <p class="job">Ingeniero en Electrónica</p>
+      <div class="contact">
+        <a href="tel:+524436155863"><span class="symbol">☎</span><span>443 615 5863</span></a>
+        <a href="mailto:Dsystems@gmail.com"><span class="symbol">✉</span><span>Dsystems@gmail.com</span></a>
+      </div>
+      <div class="actions">
+        <a class="primary" href="ivan-mejia.vcf" download="Ivan-Mejia-Dragon-Systems.vcf">＋ Guardar contacto</a>
+        <a href="https://wa.me/524436155863" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+        <a href="mailto:Dsystems@gmail.com">Enviar correo ↗</a>
+      </div>
+      <details class="share">
+        <summary>Mostrar código QR</summary>
+        <p>Escanea para abrir esta tarjeta digital.</p>
+        <div id="qrcode" aria-label="Código QR de esta página"></div>
+        <p id="qr-status" class="hint"></p>
+      </details>
+    </section>
+  </main>
+  <footer>DRAGON SYSTEMS · Tecnología e innovación</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
